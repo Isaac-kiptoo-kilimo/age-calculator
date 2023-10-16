@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <title>Age calculator app</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <main>
+        <div class="card">
+          <form class="form" novalidate>
+            <div class="form-content">
+              <div class="input_holder" id="month-input-error">
+                <label for="month" class="label-input"> Month </label>
+                <input
+                  type="text"
+                  id="month"
+                  class="form__input"
+                  placeholder="MM"
+                />
+                <span class="error-message" id="month-error">&nbsp;</span>
+              </div>
+
+              <div class="input_holder" id="day-input-error">
+                <label for="day" class="label-input"> Day</label>
+                <input
+                  type="text"
+                  id="day"
+                  class="form__input"
+                  placeholder="DD"
+                  required
+                />
+                <span class="error-message" id="day-error">&nbsp;</span>
+              </div>
+
+              <div class="input_holder" id="year-input-error">
+                <label for="year" class="label-input"> Year </label>
+                <input
+                  type="text"
+                  id="year"
+                  class="form__input"
+                  placeholder="YYYY"
+                />
+                <span class="error-message" id="year-error">&nbsp;</span>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-calculate" id="btn-calculate">
+              <img
+                src="/assets/images/icon-arrow.svg"
+                alt="icon-arrow-down"
+                class="icon"
+                onclick="calculateTimepassed()"
+              />
+            </button>
+          </form>
+
+          <section class="results-section">
+            <div class="results-wrapper">
+              <p class="results-display">
+                <span class="display-year" id="year-result">--</span>
+                years
+              </p>
+            </div>
+            <div class="results-wrapper">
+              <p class="results-display">
+                <span class="display-month" id="month-result">--</span>
+                months
+              </p>
+            </div>
+            <div class="results-wrapper">
+              <p class="results-display">
+                <span class="display-day" id="day-result">--</span>
+                days
+              </p>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="./js/calculator.js"></script>
+  <script src="./js/display.js"></script>
+</html>
