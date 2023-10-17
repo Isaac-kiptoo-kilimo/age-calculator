@@ -8,37 +8,31 @@ let year_input=document.getElementById('year');
 const btnCalc=document.getElementById('btn-calculate')
 
 
-let monthInputValue= null;
-let dayInputValue= null;
-let yearInputValue= null;
+let monthValue= "";
+let dayValue= "";
+let yearValue= "";
 
-let inputDate={
-    fullDate: new Date(),
-    month: null,
-    day: null,
-    year: null,
 
-};
 
-function calculateTimepassed(){
+
+btnCalc.addEventListener('click', ()=>{
     clearErrors(['month','day','year']);
-    validateInputDate();
-}
+    validateDate();
+})
 
-
-function validateInputDate(){
-    dayInputValue=+day_input.value;
-    monthInputValue=+month_input.value;
-    yearInputValue=+year_input.value;
+function validateDate(){
+    dayValue=+day_input.value;
+    monthValue=+month_input.value;
+    yearValue=+year_input.value;
 
     inputDate={
         fullDate: new Date(
-            `${yearInputValue}, ${monthInputValue}, ${dayInputValue}`
+            `${yearValue}, ${monthValue}, ${dayValue}`
         ),
 
-        month: monthInputValue,
-        day: dayInputValue,
-        year: yearInputValue,
+        month: monthValue,
+        day: dayValue,
+        year: yearValue,
     };
     const {month, day , year}=inputDate
 
@@ -47,20 +41,17 @@ function validateInputDate(){
     let validDay=true;
     let validYear=true;
 
-    
-    (!(year % 4) && year % 100) || !(year % 400 )
-    ? (daysPerMonth[1]=29)
-    : (daysPerMonth[1]=28);
+   
 
-    // if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
-    //     daysPerMonth[1] = 29;
-    // } else {
-    //     daysPerMonth[1] = 28;
-    // }
+    if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+        daysPerMonth[1] = 29;
+    } else {
+        daysPerMonth[1] = 28;
+    }
     
 
     
-    if(!dayInputValue){
+    if(!dayValue){
         validDay=false;
         showError('day-input-error', 'day-error', 'This field is required')
     }else if (
@@ -74,7 +65,7 @@ function validateInputDate(){
     }
 
     
-    if(!monthInputValue){
+    if(!monthValue){
         validMonth=false;
         showError('month-input-error', 'month-error', 'This field is required')
     }else if(
@@ -91,7 +82,7 @@ function validateInputDate(){
 
     
 
-    if(!yearInputValue){
+    if(!yearValue){
         validYear=false;
         showError('year-input-error', 'year-error', 'This field is required')
     }else if(year>new Date().getFullYear() || year< 1000){
@@ -109,15 +100,15 @@ function validateInputDate(){
 }
 
 
-month_input.addEventListener('input', function(){
+month_input.addEventListener('input', ()=>{
     clearError('month');
 });
 
-day_input.addEventListener('input', function(){
+day_input.addEventListener('input', ()=>{
     clearError('day');
 });
 
-year_input.addEventListener('input', function(){
+year_input.addEventListener('input', ()=>{
     clearError('year');
 });
 

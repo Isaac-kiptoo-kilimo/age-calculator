@@ -256,15 +256,48 @@ body {
 
   .input_holder {
     display: flex;
-    /* flex-direction: column; */
-    /* justify-content: flex-start; */
-    /* align-items: flex-start; */
-    /* text-align: center; */
-    /* text-align: left; */
+    
     
   }
   
 }
+
+
+.slide-right .icon {
+  animation: slide-right 1s forwards; }
+
+.slide-left .icon {
+  animation: slide-left 1s forwards; }
+
+@-webkit-keyframes slide-center {
+  100% {
+    background: #854dff;
+    left: calc(50% - 3.2rem);
+    transform: rotate(-90deg); }
+  0% {
+    background: inherit;
+    left: calc(0% - 3.2rem);
+    transform: rotate(90deg); } }
+
+@-webkit-keyframes slide-right {
+  100% {
+    left: calc(100% - 6.4rem);
+    transform: rotate(0deg);
+    background: #141414; }
+  0% {
+    background: #854dff;
+    left: calc(50% - 3.2rem);
+    transform: rotate(900deg); } }
+
+@-webkit-keyframes slide-left {
+  100% {
+    background: #ff5757;
+    left: 0;
+    transform: rotate(180deg); }
+  0% {
+    background: #854dff;
+    left: calc(50% - 3.2rem);
+    transform: rotate(-720deg); } }
 
 @media screen and (max-width: 768px) {
  
